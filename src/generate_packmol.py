@@ -15,7 +15,7 @@ def generate_packmol_input(
     packmol_inp="packmol.inp",
     tolerance=2.0,
 ):
-    root = 'all'
+    root = '../structures/'
     Lx, Ly, Lz = box_lengths
 
     lines = []
@@ -43,7 +43,7 @@ def generate_packmol_input(
     with open(packmol_inp, "w") as f:
         f.write("\n".join(lines))
 
-    print(f"✓ packmol input written to {packmol_inp}")
+    #print(f"✓ packmol input written to {packmol_inp}")
 
 
 def center_molecule(mol_file, box_lengths):
@@ -51,9 +51,6 @@ def center_molecule(mol_file, box_lengths):
     # Center the molecule in the middle of the box
     mol.center(vacuum=0.0)
     # Shift molecule to the exact center of the box
-    print(box_lengths / 2)
-    print(mol.get_center_of_mass())
-    print(box_lengths / 2 - mol.get_center_of_mass())
     mol.translate(box_lengths / 2 - mol.get_center_of_mass())
     write(mol_file, mol, format='xyz')
 
@@ -62,4 +59,5 @@ def get_num(vol):
     num = (mass/molmass) * 6.022E23
     num -= 52 # correcting for the volume taken up by the dota molecules
     return round(num)
+
 

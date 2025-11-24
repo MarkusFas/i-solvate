@@ -1,0 +1,7 @@
+src/solvated/
+src/*.pt
+src/__pycache__
+src/relaxed
+src/packmol.inp
+
+
