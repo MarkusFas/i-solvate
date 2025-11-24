@@ -1,4 +1,4 @@
-src/solvated/
+src/solvated/*.out
 src/*.pt
 src/__pycache__
 src/relaxed
