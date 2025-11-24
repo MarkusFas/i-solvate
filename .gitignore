@@ -1,0 +1,5 @@
+src/solvated/
+src/*.pt
+src/__pycache__
+
+
