@@ -9,9 +9,9 @@ import os
 import argparse
 from tqdm import tqdm
 from ase.io import read, write
-from ase.optimize import BFGS
+from ase.optimize import FIRE
 from metatomic.torch.ase_calculator import MetatomicCalculator
-from ase.io import Trajectory
+from ase.filters  import FrechetCellFilter
 
 
 def main():
@@ -36,7 +36,7 @@ def main():
     parser.add_argument(
         "--fmax",
         type=float,
-        default=0.01,
+        default=0.05,
         help="Force tolerance for relaxation. Default: 0.01 eV/Å."
     )
 
@@ -77,13 +77,13 @@ def main():
         
         # Relax
         logfile = os.path.join(outdir, fname.replace(".xyz", "-relax.out"))
-        dyn = BFGS(atoms, logfile=logfile)
-        
-        # Write trajectory file
-        traj_path = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
-        traj = Trajectory(traj_path, 'w', atoms)
-        dyn.attach(traj)
+        trajfile = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
 
+        uc = FrechetCellFilter(atoms, mask=[True, True, True, False, False, False])
+        dyn = FIRE(uc, logfile=logfile, trajectory=trajfile)
+
+        #dyn = BFGS(atoms, logfile=logfile, trajectory=trajfile)
+        
         try:
             dyn.run(fmax=fmax)
         except Exception as e:
@@ -92,7 +92,7 @@ def main():
 
         # Write output
         base, ext = os.path.splitext(fname)
-        outpath = os.path.join(dirpath, f"{base}-relax{ext}")
+        outpath = os.path.join(outdir, f"{base}-relax{ext}")
         try:
             write(outpath, atoms)
         except Exception as e:
