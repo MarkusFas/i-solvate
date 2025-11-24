@@ -15,7 +15,7 @@ def generate_packmol_input(
     packmol_inp="packmol.inp",
     tolerance=2.0,
 ):
-    root = 'all'
+    root = '../structures/'
     Lx, Ly, Lz = box_lengths
 
     lines = []

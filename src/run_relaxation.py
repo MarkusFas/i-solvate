@@ -1,33 +1,101 @@
+import warnings
+warnings.filterwarnings(
+    "ignore",
+    message="invalid value encountered in scalar add",
+    category=RuntimeWarning,
+)
+
 import os
+import argparse
+from tqdm import tqdm
 from ase.io import read, write
 from ase.optimize import BFGS
 from metatomic.torch.ase_calculator import MetatomicCalculator
 
-root = "solvated"   # change this
 
-for dirpath, dirnames, filenames in os.walk(root):
-    for fname in filenames:
-        if fname.endswith(".xyz"):
-            fpath = os.path.join(dirpath, fname)
-            print(f"Relaxing {fpath}")
+def main():
+    parser = argparse.ArgumentParser(
+        description="Relax all .xyz structures under a root directory using a Metatomic model."
+    )
+    parser.add_argument(
+        "--root",
+        required=True,
+        help="Root directory containing .xyz files (searched recursively)."
+    )
+    parser.add_argument(
+        "--output",
+        required=True,
+        help="Output directory"
+    )
+    parser.add_argument(
+        "--model",
+        required=True,
+        help="Path to the Metatomic .pt model file."
+    )
+    parser.add_argument(
+        "--fmax",
+        type=float,
+        default=0.01,
+        help="Force tolerance for relaxation. Default: 0.01 eV/Å."
+    )
 
-            # Read the structure (one structure per file)
+    args = parser.parse_args()
+
+    root = args.root
+    outdir = args.output
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
+    model_path = args.model
+    fmax = args.fmax
+
+    # Collect all xyz files first
+    xyz_files = []
+    for dirpath, dirnames, filenames in os.walk(root):
+        for fname in filenames:
+            if fname.endswith(".xyz"):
+                xyz_files.append(os.path.join(dirpath, fname))
+
+    print(f"Found {len(xyz_files)} .xyz files.\n")
+    if len(xyz_files) == 0:
+        return
+
+    # Progress bar over all files
+    for fpath in tqdm(xyz_files, desc="Relaxing structures", unit="file"):
+
+        dirpath = os.path.dirname(fpath)
+        fname = os.path.basename(fpath)
+
+        try:
             atoms = read(fpath)
+        except Exception as e:
+            print(f"\nError reading {fpath}: {e}")
+            continue
 
-            # Attach calculator
-            atoms.calc = MetatomicCalculator("pet-mad-1.5.pt",device='cpu')
+        # Attach calculator
+        atoms.calc = MetatomicCalculator(model_path)
 
-            # Relax
-            dyn = BFGS(atoms, logfile=os.path.join(dirpath, fname.replace(".xyz", "-relax.out")))
-            dyn.run(fmax=0.01)
+        # Relax
+        logfile = os.path.join(outdir, fname.replace(".xyz", "-relax.out"))
+        dyn = BFGS(atoms, logfile=logfile)
 
-            # Output filename
-            base, ext = os.path.splitext(fname)
-            outname = f"{base}-relax{ext}"
-            outpath = os.path.join(dirpath, outname)
+        try:
+            dyn.run(fmax=fmax)
+        except Exception as e:
+            print(f"\nError relaxing {fpath}: {e}")
+            continue
 
-            # Write relaxed structure
+        # Write output
+        base, ext = os.path.splitext(fname)
+        outpath = os.path.join(outdir, f"{base}-relax{ext}")
+
+        try:
             write(outpath, atoms)
+        except Exception as e:
+            print(f"\nError writing {outpath}: {e}")
+            continue
 
-            print(f" → Saved: {outpath}")
+    print("\nAll relaxations completed.")
 
+
+if __name__ == "__main__":
+    main()
