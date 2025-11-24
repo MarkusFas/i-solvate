@@ -66,11 +66,9 @@ def call_packmol_generator(solutes, solvent, max_n_atoms):
         with open(out_fname[:-3] + 'out', 'w') as fout:
             fout.write(run.stdout)
     # save as lammps.data
-    #structures = ase.io.read(out_fname)
-    #structures.set_cell(box_lengths+1) # Add a small buffer to avoid periodic boundary issues
-    #structures.set_pbc(True)
-    #specorder = list(symbol_to_id.keys())[:102]
-    #write(out_fname, structures, format='extxyz')
-    #write("lammps_indexing.data", structures, specorder=[ielement for ielement in range(102)], format='lammps-data')
-    #write("lammps_indexing.xyz", structures, format='extxyz')
-    #print(f"Packmol run completed. Output written to {out_fname}.")
+    structures = ase.io.read(out_fname)
+    structures.info.clear()
+
+    structures.set_cell(box_lengths) # Add a small buffer to avoid periodic boundary issues
+    structures.set_pbc(True)
+    ase.io.write(out_fname, structures, format='extxyz')

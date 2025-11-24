@@ -11,7 +11,6 @@ from tqdm import tqdm
 from ase.io import read, write
 from ase.optimize import BFGS
 from metatomic.torch.ase_calculator import MetatomicCalculator
-from ase.io import Trajectory
 
 
 def main():
@@ -80,11 +79,6 @@ def main():
         trajfile = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
         dyn = BFGS(atoms, logfile=logfile, trajectory=trajfile)
         
-        # Write trajectory file
-        #traj_path = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
-        #traj = Trajectory(traj_path, 'w', atoms)
-        #dyn.attach(traj)
-
         try:
             dyn.run(fmax=fmax)
         except Exception as e:
@@ -93,7 +87,7 @@ def main():
 
         # Write output
         base, ext = os.path.splitext(fname)
-        outpath = os.path.join(dirpath, f"{base}-relax{ext}")
+        outpath = os.path.join(outdir, f"{base}-relax{ext}")
         try:
             write(outpath, atoms)
         except Exception as e:
