@@ -36,7 +36,7 @@ def main():
     parser.add_argument(
         "--fmax",
         type=float,
-        default=0.01,
+        default=0.05,
         help="Force tolerance for relaxation. Default: 0.01 eV/Å."
     )
 
@@ -77,12 +77,13 @@ def main():
         
         # Relax
         logfile = os.path.join(outdir, fname.replace(".xyz", "-relax.out"))
-        dyn = BFGS(atoms, logfile=logfile)
+        trajfile = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
+        dyn = BFGS(atoms, logfile=logfile, trajectory=trajfile)
         
         # Write trajectory file
-        traj_path = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
-        traj = Trajectory(traj_path, 'w', atoms)
-        dyn.attach(traj)
+        #traj_path = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
+        #traj = Trajectory(traj_path, 'w', atoms)
+        #dyn.attach(traj)
 
         try:
             dyn.run(fmax=fmax)
