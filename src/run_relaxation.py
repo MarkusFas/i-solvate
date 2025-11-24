@@ -9,9 +9,9 @@ import os
 import argparse
 from tqdm import tqdm
 from ase.io import read, write
-from ase.optimize import BFGS
+from ase.optimize import FIRE
 from metatomic.torch.ase_calculator import MetatomicCalculator
-from ase.filters  import UnitCellFilter
+from ase.filters  import FrechetCellFilter
 
 
 def main():
@@ -79,8 +79,8 @@ def main():
         logfile = os.path.join(outdir, fname.replace(".xyz", "-relax.out"))
         trajfile = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
 
-        uc = UnitCellFilter(atoms)
-        dyn = BFGS(uc, logfile=logfile, trajectory=trajfile)
+        uc = FrechetCellFilter(atoms, mask=[True, True, True, False, False, False])
+        dyn = FIRE(uc, logfile=logfile, trajectory=trajfile)
 
         #dyn = BFGS(atoms, logfile=logfile, trajectory=trajfile)
         
