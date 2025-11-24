@@ -11,6 +11,7 @@ from tqdm import tqdm
 from ase.io import read, write
 from ase.optimize import BFGS
 from metatomic.torch.ase_calculator import MetatomicCalculator
+from ase.filters  import UnitCellFilter
 
 
 def main():
@@ -77,7 +78,11 @@ def main():
         # Relax
         logfile = os.path.join(outdir, fname.replace(".xyz", "-relax.out"))
         trajfile = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
-        dyn = BFGS(atoms, logfile=logfile, trajectory=trajfile)
+
+        uc = UnitCellFilter(atoms)
+        dyn = BFGS(uc, logfile=logfile, trajectory=trajfile)
+
+        #dyn = BFGS(atoms, logfile=logfile, trajectory=trajfile)
         
         try:
             dyn.run(fmax=fmax)
