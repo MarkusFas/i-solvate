@@ -79,7 +79,7 @@ def main():
         logfile = os.path.join(outdir, fname.replace(".xyz", "-relax.out"))
         trajfile = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
 
-        uc = FrechetCellFilter(atoms, mask=[True, True, True, False, False, False])
+        uc = FrechetCellFilter(atoms, mask=[True, True, True, False, False, False], hydrostatic_strain= True)
         dyn = FIRE(uc, logfile=logfile, trajectory=trajfile)
 
         #dyn = BFGS(atoms, logfile=logfile, trajectory=trajfile)
