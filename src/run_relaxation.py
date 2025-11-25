@@ -94,6 +94,12 @@ def main():
         
         try:
             dyn.run(fmax=fmax, steps=10000)
+            if not dyn.converged:
+                print(f"\nWarning: Relaxation for {fpath} did not converge within the maximum number of steps.")
+                dyn.run(fmax=fmax*2, steps=10000)  # Try again with looser criteria
+                if not dyn.converged:
+                    print(f"\nError: Relaxation for {fpath} still did not converge.")
+                    continue
         except Exception as e:
             print(f"\nError relaxing {fpath}: {e}")
             continue
