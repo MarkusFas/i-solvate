@@ -64,17 +64,15 @@ def main():
     # Progress bar over all files
     for fpath in tqdm(xyz_files[:], desc="Relaxing structures", unit="file"):
 
+        dirpath = os.path.dirname(fpath)
+        fname = os.path.basename(fpath)
         # Write output
         base, ext = os.path.splitext(fname)
         outpath = os.path.join(outdir, f"{base}-relax{ext}")
-
         if os.path.exists(outpath):
             # Skip already relaxed files
             print(f"\nSkipping {fpath}, already relaxed.")
             continue
-
-        dirpath = os.path.dirname(fpath)
-        fname = os.path.basename(fpath)
 
         try:
             atoms = read(fpath)
@@ -95,7 +93,7 @@ def main():
         #dyn = BFGS(atoms, logfile=logfile, trajectory=trajfile)
         
         try:
-            dyn.run(fmax=fmax)
+            dyn.run(fmax=fmax, steps=10000)
         except Exception as e:
             print(f"\nError relaxing {fpath}: {e}")
             continue
