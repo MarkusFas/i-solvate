@@ -36,6 +36,10 @@ def call_packmol_generator(solutes, solvent, max_n_atoms):
     solvent_name = solvent[0]
     out_name += solvent_name
     out_fname = os.path.join(out_root, out_name + ".xyz")
+    if os.path.exists(out_fname):
+        print(f"{out_fname} already exists. Skipping packmol generation.")
+        return
+    
     # get allowed number of solvent molecules
     solvent_atoms = ase.io.read(os.path.join(in_root, solvent_name + '.xyz'))
     n_solvent = (max_n_atoms - n_atoms) // len(solvent_atoms)
