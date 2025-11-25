@@ -62,7 +62,16 @@ def main():
         return
 
     # Progress bar over all files
-    for fpath in tqdm(xyz_files, desc="Relaxing structures", unit="file"):
+    for fpath in tqdm(xyz_files[:], desc="Relaxing structures", unit="file"):
+
+        # Write output
+        base, ext = os.path.splitext(fname)
+        outpath = os.path.join(outdir, f"{base}-relax{ext}")
+
+        if os.path.exists(outpath):
+            # Skip already relaxed files
+            print(f"\nSkipping {fpath}, already relaxed.")
+            continue
 
         dirpath = os.path.dirname(fpath)
         fname = os.path.basename(fpath)
