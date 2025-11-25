@@ -88,16 +88,19 @@ def main():
         trajfile = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
 
         uc = FrechetCellFilter(atoms, mask=[True, True, True, False, False, False], hydrostatic_strain= True)
-        dyn = FIRE(uc, logfile=logfile, trajectory=trajfile)
-
-        #dyn = BFGS(atoms, logfile=logfile, trajectory=trajfile)
-        
+        dyn = FIRE(uc, logfile=logfile, trajectory=trajfile)        
         try:
-            dyn.run(fmax=fmax, steps=10000)
-            if not dyn.converged:
+            relax = dyn.run(fmax=fmax, steps=1000)
+            if not relax:
                 print(f"\nWarning: Relaxation for {fpath} did not converge within the maximum number of steps.")
-                dyn.run(fmax=fmax*2, steps=10000)  # Try again with looser criteria
-                if not dyn.converged:
+                
+                atoms = read(fpath)
+                atoms.calc = MetatomicCalculator(model_path)
+
+                uc = FrechetCellFilter(atoms, mask=[True, True, True, False, False, False], hydrostatic_strain= True)
+                dyn = FIRE(uc, logfile=logfile, trajectory=trajfile)
+                relax = dyn.run(fmax=fmax*2, steps=5000)  # Try again with looser criteria
+                if not relax:
                     print(f"\nError: Relaxation for {fpath} still did not converge.")
                     continue
         except Exception as e:
