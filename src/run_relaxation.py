@@ -56,15 +56,23 @@ def main():
             if fname.endswith(".xyz"):
                 xyz_files.append(os.path.join(dirpath, fname))
 
+    xyz_files.sort()
     print(f"Found {len(xyz_files)} .xyz files.\n")
     if len(xyz_files) == 0:
         return
 
     # Progress bar over all files
-    for fpath in tqdm(xyz_files, desc="Relaxing structures", unit="file"):
+    for fpath in tqdm(xyz_files[:], desc="Relaxing structures", unit="file"):
 
         dirpath = os.path.dirname(fpath)
         fname = os.path.basename(fpath)
+        # Write output
+        base, ext = os.path.splitext(fname)
+        outpath = os.path.join(outdir, f"{base}-relax{ext}")
+        if os.path.exists(outpath):
+            # Skip already relaxed files
+            print(f"\nSkipping {fpath}, already relaxed.")
+            continue
 
         try:
             atoms = read(fpath)
@@ -79,13 +87,22 @@ def main():
         logfile = os.path.join(outdir, fname.replace(".xyz", "-relax.out"))
         trajfile = os.path.join(outdir, fname.replace(".xyz", "-relax.traj"))
 
-        uc = FrechetCellFilter(atoms, mask=[True, True, True, False, False, False])
-        dyn = FIRE(uc, logfile=logfile, trajectory=trajfile)
-
-        #dyn = BFGS(atoms, logfile=logfile, trajectory=trajfile)
-        
+        uc = FrechetCellFilter(atoms, mask=[True, True, True, False, False, False], hydrostatic_strain= True)
+        dyn = FIRE(uc, logfile=logfile, trajectory=trajfile)        
         try:
-            dyn.run(fmax=fmax)
+            relax = dyn.run(fmax=fmax, steps=1000)
+            if not relax:
+                print(f"\nWarning: Relaxation for {fpath} did not converge within the maximum number of steps.")
+                
+                atoms = read(fpath)
+                atoms.calc = MetatomicCalculator(model_path)
+
+                uc = FrechetCellFilter(atoms, mask=[True, True, True, False, False, False], hydrostatic_strain= True)
+                dyn = FIRE(uc, logfile=logfile, trajectory=trajfile)
+                relax = dyn.run(fmax=fmax*2, steps=5000)  # Try again with looser criteria
+                if not relax:
+                    print(f"\nError: Relaxation for {fpath} still did not converge.")
+                    continue
         except Exception as e:
             print(f"\nError relaxing {fpath}: {e}")
             continue
