@@ -56,6 +56,7 @@ def main():
             if fname.endswith(".xyz"):
                 xyz_files.append(os.path.join(dirpath, fname))
 
+    xyz_files.sort()
     print(f"Found {len(xyz_files)} .xyz files.\n")
     if len(xyz_files) == 0:
         return
