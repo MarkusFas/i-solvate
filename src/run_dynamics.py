@@ -16,7 +16,7 @@ from tqdm import tqdm
 import time
 
 
-def run_dyn(atoms, model_path, out_file, ensemble):
+def run_dyn(atoms, model_path, out_file, ensemble, total_time):
     """
     Run NVT or NPT for 10 ps at T = 330 K and P = 1 bar.
     """
@@ -26,7 +26,7 @@ def run_dyn(atoms, model_path, out_file, ensemble):
 
     # 10 ps simulation: choose timestep = 0.5 fs
     dt = 0.5 * units.fs
-    total_time = 1000 * units.fs   # 10 ps
+    total_time *= 1000 * units.fs # convert ps to fs
     nsteps = int(total_time / dt)
 
     if ensemble == 'nvt':
@@ -91,6 +91,12 @@ def main():
         default='nvt',
         help="Ensemble to use: nvt or npt"
     )
+    parser.add_argument(
+        "--time",
+        type=float,
+        default=10.0,
+        help="Total simulation time in ps (default: 50 ps)."
+    )
 
     args = parser.parse_args()
 
@@ -100,6 +106,7 @@ def main():
         os.makedirs(outdir)
     model_path = args.model
     ensemble = args.ensemble
+    total_time = args.time
 
     xyz_files = sorted(glob(os.path.join(root, "*.xyz")))[:10]
     os.makedirs(outdir, exist_ok=True)
@@ -113,7 +120,7 @@ def main():
         base = os.path.basename(f).replace(".xyz", "")
         out_file = os.path.join(outdir, f"{base}-{ensemble}.xyz")
 
-        run_dyn(atoms, model_path, out_file, ensemble)
+        run_dyn(atoms, model_path, out_file, ensemble, total_time)
 
 if __name__ == "__main__":
     main()
