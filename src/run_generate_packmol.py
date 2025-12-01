@@ -18,7 +18,7 @@ def smallest_stoichiometry(c_charge, a_charge):
 def call_packmol_generator(solutes, solvent, max_n_atoms):
     # solutes: list of tuple: iupac name, number of atoms
     in_root = '../structures'
-    out_root = 'solvated'
+    out_root = 'solvated_{}'.format(max_n_atoms)
     if not os.path.exists(out_root):
         os.makedirs(out_root)
     packmol_file = "packmol.inp"

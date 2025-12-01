@@ -3,7 +3,7 @@ from run_generate_packmol import call_packmol_generator, smallest_stoichiometry
 import pandas as pd
 from tqdm import tqdm
 
-MAX_N_ATOMS = 200
+MAX_N_ATOMS = 150
 
 # Reading database ...
 # write all combinations of cations, anions and solvents
