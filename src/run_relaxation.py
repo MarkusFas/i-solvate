@@ -9,7 +9,7 @@ import os
 import argparse
 from tqdm import tqdm
 from ase.io import read, write
-from ase.optimize import FIRE
+from ase.optimize import FIRE, BFGS
 from metatomic.torch.ase_calculator import MetatomicCalculator
 from ase.filters  import FrechetCellFilter
 
@@ -101,8 +101,17 @@ def main():
                 dyn = FIRE(uc, logfile=logfile, trajectory=trajfile)
                 relax = dyn.run(fmax=fmax*2, steps=5000)  # Try again with looser criteria
                 if not relax:
-                    print(f"\nError: Relaxation for {fpath} still did not converge.")
-                    continue
+                    print(f"\nWarning: Relaxation for {fpath} did not converge within the maximum number of steps.")
+                    
+                    atoms = read(fpath)
+                    atoms.calc = MetatomicCalculator(model_path)
+
+                    uc = FrechetCellFilter(atoms, mask=[True, True, True, False, False, False], hydrostatic_strain= True)
+                    dyn = BFGS(uc, logfile=logfile, trajectory=trajfile)
+                    relax = dyn.run(fmax=fmax, steps=10000)  # Try again with looser criteria
+                    if not relax:
+                        print(f"\nError: Relaxation for {fpath} still did not converge.")
+                        continue
         except Exception as e:
             print(f"\nError relaxing {fpath}: {e}")
             continue
