@@ -1,0 +1,292 @@
+
+################################################################################
+
+ PACKMOL - Packing optimization for the automated generation of
+ starting configurations for molecular dynamics simulations.
+ 
+                                                             Version 21.1.2 
+
+################################################################################
+
+  Packmol must be run with: packmol < inputfile.inp 
+
+  Userguide at: http://m3g.iqm.unicamp.br/packmol 
+
+  Reading input file... (Control-C aborts)
+  Types of coordinate files specified: xyz
+  Periodic boundary condition activated: 
+    Minimum coordinates:     0.00    0.00    0.00
+    Maximum coordinates:    12.08   12.08   12.08
+  Seed for random number generator:      1234567
+  Output file: solvated_150/1Cm_1phosphate_oxolane.xyz
+  Reading coordinate file: ../structures/Cm.xyz
+  Reading coordinate file: ../structures/phosphate.xyz
+  Reading coordinate file: ../structures/oxolane.xyz
+  Number of independent structures:            3
+  The structures are: 
+  Structure            1 :Properties=species:S:1:pos:R:3 iupac_name=Cm pbc="F F F"(           1  atoms)
+  Structure            2 :Properties=species:S:1:pos:R:3 iupac_name=phosphate pbc="F F F"(           5  atoms)
+  Structure            3 :Properties=species:S:1:pos:R:3 iupac_name=oxolane pbc="F F F"(          13  atoms)
+  Maximum number of GENCAN loops for all molecule packing:          600
+  Distance tolerance:    2.0000000000000000     
+  Number of molecules of type            1 :            1
+  Number of molecules of type            2 :            1
+  Number of molecules of type            3 :           11
+  Total number of restrictions:            3
+  Total number of atoms:          149
+  Total number of molecules:           13
+  Number of fixed molecules:            0
+  Number of free molecules:           13
+  Number of variables:           78
+  Total number of fixed atoms:            0
+  PBC on: Constraint automatically added to non-fixed atoms:
+  -> inside box     0.00    0.00    0.00   12.08   12.08   12.08
+  Updated total number of restrictions:            4
+  Maximum internal distance of type            1 :    0.0000000000000000     
+  Maximum internal distance of type            2 :    2.5110349838263901     
+  Maximum internal distance of type            3 :    4.1645648236040227     
+  All atoms must be within these coordinates: 
+   x: [   -1000.0000000000000      ,    1000.0000000000000       ] 
+   y: [   -1000.0000000000000      ,    1000.0000000000000       ] 
+   z: [   -1000.0000000000000      ,    1000.0000000000000       ] 
+  If the system is larger than this, increase the sidemax parameter. 
+
+################################################################################
+
+  Building initial approximation ... 
+
+################################################################################
+
+  Adjusting initial point to fit the constraints 
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            1
+
+  Packing:|0                                                        100%|
+          |******
+
+  Restraint-only function value:    2.6372216302137195E-014
+  Maximum violation of the restraints:    2.6372216302137195E-014
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            2
+
+  Packing:|0                                                        100%|
+          |************
+
+  Restraint-only function value:    0.0000000000000000     
+  Maximum violation of the restraints:    0.0000000000000000     
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            3
+
+  Packing:|0                                                        100%|
+          |*********************
+
+  Restraint-only function value:    1.6435918561912385E-004
+  Maximum violation of the restraints:    1.5004590053734054E-004
+
+--------------------------------------------------------------------------------
+
+  Rescaling maximum and minimum coordinates... 
+  Mininum and maximum coordinates after constraint fitting: 
+   x: [    9.1025105927070374E-002 ,    12.087465537242389       ] 
+   y: [    1.8881746548054544E-002 ,    12.078804052125378       ] 
+   z: [   -2.6751901877981772E-003 ,    11.655748470663777       ] 
+  Computing size of patches... 
+  Number of cells in each direction and cell sides: 
+   x:            5  cells of size    2.4157607916543031     
+   y:            5  cells of size    2.4157607916543031     
+   z:            5  cells of size    2.4157607916543031     
+  Cell-system length:   12.07880  12.07880  12.07880
+  Reseting center of mass... 
+
+--------------------------------------------------------------------------------
+
+  Setting initial trial coordinates ... 
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            1
+  Adjusting random positions to fit the constraints. 
+  Restraint-only function value:    2.6372216302137195E-014
+  Maximum violation of the restraints:    2.6372216302137195E-014
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            2
+  Adjusting random positions to fit the constraints. 
+  Restraint-only function value:    0.0000000000000000     
+  Maximum violation of the restraints:    0.0000000000000000     
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            3
+  Adjusting random positions to fit the constraints. 
+  Packing:|0                                                        100%|
+          |***
+  Restraint-only function value:    0.0000000000000000     
+  Maximum violation of the restraints:    0.0000000000000000     
+
+################################################################################
+
+  Objective function at initial point:    1559.6878698419841     
+
+################################################################################
+
+  Packing molecules of type:            1
+
+################################################################################
+
+
+  Initial approximation is a solution. Nothing to do. 
+
+  Current point written to file: solvated_150/1Cm_1phosphate_oxolane.xyz
+--------------------------------------------------------------------------------
+  Packing solved for molecules of type           1
+  Objective function value:    2.6372216302137195E-014
+  Maximum violation of target distance:    0.0000000000000000     
+  Max. constraint violation:    2.6372216302137195E-014
+--------------------------------------------------------------------------------
+
+################################################################################
+
+  Packing molecules of type:            2
+
+################################################################################
+
+
+  Initial approximation is a solution. Nothing to do. 
+
+  Current point written to file: solvated_150/1Cm_1phosphate_oxolane.xyz
+--------------------------------------------------------------------------------
+  Packing solved for molecules of type           2
+  Objective function value:    0.0000000000000000     
+  Maximum violation of target distance:    0.0000000000000000     
+  Max. constraint violation:    0.0000000000000000     
+--------------------------------------------------------------------------------
+
+################################################################################
+
+  Packing molecules of type:            3
+
+################################################################################
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            0
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .86867E+00
+  Best function value before: f = .15597E+04
+  Improvement from best function value:    99.94 %
+  Improvement from last loop:    99.94 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .39503E+00
+  All-type function value: .91794E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            1
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .40228E-01
+  Best function value before: f = .86867E+00
+  Improvement from best function value:    95.37 %
+  Improvement from last loop:    95.37 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .18892E-01
+  All-type function value: .57898E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            2
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |*********
+
+  Function value from last GENCAN loop: f = .19284E-01
+  Best function value before: f = .40228E-01
+  Improvement from best function value:    52.06 %
+  Improvement from last loop:    52.06 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .90838E-02
+  Current structure written to file: solvated_150/1Cm_1phosphate_oxolane.xyz
+--------------------------------------------------------------------------------
+  Packing solved for molecules of type           3
+  Objective function value:    1.9284461188161649E-002
+  Maximum violation of target distance:    0.0000000000000000     
+  Max. constraint violation:    9.0838451969071522E-003
+--------------------------------------------------------------------------------
+
+################################################################################
+
+  Packing all molecules together 
+
+################################################################################
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            0
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |******
+
+  Function value from last GENCAN loop: f = .12424E-01
+  Best function value before: f = .65394E+00
+  Improvement from best function value:    98.10 %
+  Improvement from last loop:    98.10 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .59901E-02
+
+################################################################################
+
+                                 Success! 
+              Final objective function value: .12424E-01
+              Maximum violation of target distance:   0.000000
+              Maximum violation of the constraints: .59901E-02
+
+--------------------------------------------------------------------------------
+
+              Please cite this work if Packmol was useful: 
+
+           L. Martinez, R. Andrade, E. G. Birgin, J. M. Martinez, 
+         PACKMOL: A package for building initial configurations for
+                   molecular dynamics simulations. 
+        Journal of Computational Chemistry, 30(13) pp. 2157-2164, 2009.
+                  https://doi.org/10.1002/jcc.21224
+
+################################################################################
+
+  Solution written to file: solvated_150/1Cm_1phosphate_oxolane.xyz
+
+--------------------------------------------------------------------------------
+
+   Running time:    6.74550012E-02  seconds. 
+
+--------------------------------------------------------------------------------
+
+

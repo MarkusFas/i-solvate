@@ -1,0 +1,1542 @@
+
+################################################################################
+
+ PACKMOL - Packing optimization for the automated generation of
+ starting configurations for molecular dynamics simulations.
+ 
+                                                             Version 21.1.2 
+
+################################################################################
+
+  Packmol must be run with: packmol < inputfile.inp 
+
+  Userguide at: http://m3g.iqm.unicamp.br/packmol 
+
+  Reading input file... (Control-C aborts)
+  Types of coordinate files specified: xyz
+  Periodic boundary condition activated: 
+    Minimum coordinates:     0.00    0.00    0.00
+    Maximum coordinates:    10.48   10.48   10.48
+  Seed for random number generator:      1234567
+  Output file: solvated_150/21-hexyl-3-methylimidazol-3-ium_1tungstate_N,N-dimethylformamide.xyz
+  Reading coordinate file: ../structures/1-hexyl-3-methylimidazol-3-ium.xyz
+  Reading coordinate file: ../structures/tungstate.xyz
+  Reading coordinate file: ../structures/N,N-dimethylformamide.xyz
+  Number of independent structures:            3
+  The structures are: 
+  Structure            1 :Properties=species:S:1:pos:R:3 iupac_name=1-hexyl-3-methylimidazol-3-ium pbc="F F F"(          31  atoms)
+  Structure            2 :Properties=species:S:1:pos:R:3 iupac_name=tungstate pbc="F F F"(           5  atoms)
+  Structure            3 :Properties=species:S:1:pos:R:3 iupac_name=N,N-dimethylformamide pbc="F F F"(          12  atoms)
+  Maximum number of GENCAN loops for all molecule packing:          600
+  Distance tolerance:    2.0000000000000000     
+  Number of molecules of type            1 :            2
+  Number of molecules of type            2 :            1
+  Number of molecules of type            3 :            6
+  Total number of restrictions:            3
+  Total number of atoms:          139
+  Total number of molecules:            9
+  Number of fixed molecules:            0
+  Number of free molecules:            9
+  Number of variables:           54
+  Total number of fixed atoms:            0
+  PBC on: Constraint automatically added to non-fixed atoms:
+  -> inside box     0.00    0.00    0.00   10.48   10.48   10.48
+  Updated total number of restrictions:            4
+  Maximum internal distance of type            1 :    10.040047375884239     
+  Maximum internal distance of type            2 :    3.2682235442515251     
+  Maximum internal distance of type            3 :    4.2658499117995232     
+  All atoms must be within these coordinates: 
+   x: [   -993.95565264203367      ,    1006.0443473579663       ] 
+   y: [   -995.72380077072194      ,    1004.2761992292781       ] 
+   z: [   -997.66936931721523      ,    1002.3306306827848       ] 
+  If the system is larger than this, increase the sidemax parameter. 
+
+################################################################################
+
+  Building initial approximation ... 
+
+################################################################################
+
+  Adjusting initial point to fit the constraints 
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            1
+
+  Packing:|0                                                        100%|
+          |***************************
+
+  Restraint-only function value:    4.4536905424958609E-004
+  Maximum violation of the restraints:    4.4536904389565934E-004
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            2
+
+  Packing:|0                                                        100%|
+          |******************
+
+  Restraint-only function value:    0.0000000000000000     
+  Maximum violation of the restraints:    0.0000000000000000     
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            3
+
+  Packing:|0                                                        100%|
+          |******************
+
+  Restraint-only function value:    1.0804795999385200E-002
+  Maximum violation of the restraints:    7.2799874427420417E-003
+
+--------------------------------------------------------------------------------
+
+  Rescaling maximum and minimum coordinates... 
+  Mininum and maximum coordinates after constraint fitting: 
+   x: [    3.8867209373800236E-003 ,    10.518439361884079       ] 
+   y: [    5.4517240195519151E-002 ,    10.475884744373969       ] 
+   z: [   -6.0332360482339996E-002 ,    10.491560694371030       ] 
+  Computing size of patches... 
+  Number of cells in each direction and cell sides: 
+   x:            4  cells of size    2.6191595191432353     
+   y:            4  cells of size    2.6191595191432353     
+   z:            4  cells of size    2.6191595191432353     
+  Cell-system length:   10.47664  10.47664  10.47664
+  Reseting center of mass... 
+
+--------------------------------------------------------------------------------
+
+  Setting initial trial coordinates ... 
+
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            1
+  Adjusting random positions to fit the constraints. 
+  Packing:|0                                                        100%|
+          |************
+  Restraint-only function value:    5.9169099229561747E-003
+  Maximum violation of the restraints:    5.9041882400390081E-003
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            2
+  Adjusting random positions to fit the constraints. 
+  Packing:|0                                                        100%|
+          |***
+  Restraint-only function value:    0.0000000000000000     
+  Maximum violation of the restraints:    0.0000000000000000     
+
+--------------------------------------------------------------------------------
+
+  Molecules of type:            3
+  Adjusting random positions to fit the constraints. 
+  Packing:|0                                                        100%|
+          |***
+  Restraint-only function value:    0.0000000000000000     
+  Maximum violation of the restraints:    0.0000000000000000     
+
+################################################################################
+
+  Objective function at initial point:    1489.3266551960241     
+
+################################################################################
+
+  Packing molecules of type:            1
+
+################################################################################
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            0
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |***************************
+
+  Function value from last GENCAN loop: f = .57280E-04
+  Best function value before: f = .48735E+03
+  Improvement from best function value:    99.99 %
+  Improvement from last loop:    99.99 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .57280E-04
+  Current structure written to file: solvated_150/21-hexyl-3-methylimidazol-3-ium_1tungstate_N,N-dimethylformamide.xyz
+--------------------------------------------------------------------------------
+  Packing solved for molecules of type           1
+  Objective function value:    5.7280363372634053E-005
+  Maximum violation of target distance:    0.0000000000000000     
+  Max. constraint violation:    5.7280363372634053E-005
+--------------------------------------------------------------------------------
+
+################################################################################
+
+  Packing molecules of type:            2
+
+################################################################################
+
+
+  Initial approximation is a solution. Nothing to do. 
+
+  Current point written to file: solvated_150/21-hexyl-3-methylimidazol-3-ium_1tungstate_N,N-dimethylformamide.xyz
+--------------------------------------------------------------------------------
+  Packing solved for molecules of type           2
+  Objective function value:    0.0000000000000000     
+  Maximum violation of target distance:    0.0000000000000000     
+  Max. constraint violation:    0.0000000000000000     
+--------------------------------------------------------------------------------
+
+################################################################################
+
+  Packing molecules of type:            3
+
+################################################################################
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            0
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |******************************************************
+
+  Function value from last GENCAN loop: f = .60701E-03
+  Best function value before: f = .30139E+03
+  Improvement from best function value:    99.99 %
+  Improvement from last loop:    99.99 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .60701E-03
+  Current structure written to file: solvated_150/21-hexyl-3-methylimidazol-3-ium_1tungstate_N,N-dimethylformamide.xyz
+--------------------------------------------------------------------------------
+  Packing solved for molecules of type           3
+  Objective function value:    6.0700884571987101E-004
+  Maximum violation of target distance:    0.0000000000000000     
+  Max. constraint violation:    6.0700884571987101E-004
+--------------------------------------------------------------------------------
+
+################################################################################
+
+  Packing all molecules together 
+
+################################################################################
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            0
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .26737E+02
+  Best function value before: f = .59462E+03
+  Improvement from best function value:    95.50 %
+  Improvement from last loop:    95.50 %
+  Maximum violation of target distance:     1.652580
+  Maximum violation of the constraints: .49953E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            1
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .53050E+01
+  Best function value before: f = .26737E+02
+  Improvement from best function value:    80.16 %
+  Improvement from last loop:    80.16 %
+  Maximum violation of target distance:     0.327646
+  Maximum violation of the constraints: .17312E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            2
+  Scaling radii by:    1.1000000000000001     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .57281E+01
+  Best function value before: f = .53050E+01
+  Improvement from best function value:    -7.98 %
+  Improvement from last loop:    -7.98 %
+  Maximum violation of target distance:     0.000000
+  Maximum violation of the constraints: .13415E+01
+
+--------------------------------------------------------------------------------
+
+  Moving worst molecules ... 
+  Function value before moving molecules:   5.7280502803868512     
+  Type         1 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         1
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         2 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         2
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         3 molecules with non-zero contributions:   50.00%
+  Moving         1 molecules of type         3
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Function value after moving molecules:   824.31593185452641     
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            3
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .33063E+02
+  Best function value before: f = .53050E+01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    95.99 %
+  Maximum violation of target distance:     1.518670
+  Maximum violation of the constraints: .26547E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            4
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .88213E+01
+  Best function value before: f = .53050E+01
+  Improvement from best function value:   -66.28 %
+  Improvement from last loop:    73.32 %
+  Maximum violation of target distance:     0.981972
+  Maximum violation of the constraints: .82219E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            5
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .57296E+01
+  Best function value before: f = .53050E+01
+  Improvement from best function value:    -8.00 %
+  Improvement from last loop:    35.05 %
+  Maximum violation of target distance:     1.099584
+  Maximum violation of the constraints: .41969E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            6
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .44240E+01
+  Best function value before: f = .53050E+01
+  Improvement from best function value:    16.61 %
+  Improvement from last loop:    22.79 %
+  Maximum violation of target distance:     1.198339
+  Maximum violation of the constraints: .22255E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            7
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .37400E+01
+  Best function value before: f = .44240E+01
+  Improvement from best function value:    15.46 %
+  Improvement from last loop:    15.46 %
+  Maximum violation of target distance:     1.004865
+  Maximum violation of the constraints: .14660E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            8
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .34611E+01
+  Best function value before: f = .37400E+01
+  Improvement from best function value:     7.46 %
+  Improvement from last loop:     7.46 %
+  Maximum violation of target distance:     0.929382
+  Maximum violation of the constraints: .63394E-01
+
+--------------------------------------------------------------------------------
+
+  Moving worst molecules ... 
+  Function value before moving molecules:   3.4610620197642525     
+  Type         1 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         1
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         2 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         2
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         3 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         3
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Function value after moving molecules:   707.09226238351800     
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:            9
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .27061E+02
+  Best function value before: f = .34611E+01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    96.17 %
+  Maximum violation of target distance:     1.358883
+  Maximum violation of the constraints: .39468E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           10
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .86403E+01
+  Best function value before: f = .34611E+01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    68.07 %
+  Maximum violation of target distance:     0.687784
+  Maximum violation of the constraints: .83697E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           11
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .30383E+01
+  Best function value before: f = .34611E+01
+  Improvement from best function value:    12.21 %
+  Improvement from last loop:    64.84 %
+  Maximum violation of target distance:     0.354136
+  Maximum violation of the constraints: .60427E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           12
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .11419E+01
+  Best function value before: f = .30383E+01
+  Improvement from best function value:    62.42 %
+  Improvement from last loop:    62.42 %
+  Maximum violation of target distance:     0.199047
+  Maximum violation of the constraints: .18517E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           13
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .43990E+00
+  Best function value before: f = .11419E+01
+  Improvement from best function value:    61.47 %
+  Improvement from last loop:    61.47 %
+  Maximum violation of target distance:     0.095176
+  Maximum violation of the constraints: .78462E-01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           14
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .26816E+00
+  Best function value before: f = .43990E+00
+  Improvement from best function value:    39.04 %
+  Improvement from last loop:    39.04 %
+  Maximum violation of target distance:     0.081146
+  Maximum violation of the constraints: .10333E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           15
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .24280E+00
+  Best function value before: f = .26816E+00
+  Improvement from best function value:     9.46 %
+  Improvement from last loop:     9.46 %
+  Maximum violation of target distance:     0.081841
+  Maximum violation of the constraints: .78036E-01
+
+--------------------------------------------------------------------------------
+
+  Moving worst molecules ... 
+  Function value before moving molecules:  0.24280187349035057     
+  Type         1 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         1
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         2 molecules with non-zero contributions:    0.00%
+  Type         3 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         3
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Function value after moving molecules:   758.11069384109726     
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           16
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .23679E+02
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    96.88 %
+  Maximum violation of target distance:     1.291990
+  Maximum violation of the constraints: .40543E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           17
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .52500E+01
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    77.83 %
+  Maximum violation of target distance:     0.572688
+  Maximum violation of the constraints: .79340E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           18
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .14692E+01
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    72.02 %
+  Maximum violation of target distance:     0.319221
+  Maximum violation of the constraints: .45843E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           19
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .11482E+01
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    21.84 %
+  Maximum violation of target distance:     0.240830
+  Maximum violation of the constraints: .16698E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           20
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .10708E+01
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:     6.74 %
+  Maximum violation of target distance:     0.255144
+  Maximum violation of the constraints: .19624E+00
+
+--------------------------------------------------------------------------------
+
+  Moving worst molecules ... 
+  Function value before moving molecules:   1.0707981416316490     
+  Type         1 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         1
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         2 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         2
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         3 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         3
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Function value after moving molecules:   400.05847463050725     
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           21
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .24513E+02
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    93.87 %
+  Maximum violation of target distance:     1.725998
+  Maximum violation of the constraints: .22300E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           22
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .92564E+01
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    62.24 %
+  Maximum violation of target distance:     0.749242
+  Maximum violation of the constraints: .27447E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           23
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .37663E+01
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    59.31 %
+  Maximum violation of target distance:     0.339404
+  Maximum violation of the constraints: .82199E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           24
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .22499E+01
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    40.26 %
+  Maximum violation of target distance:     0.336473
+  Maximum violation of the constraints: .42877E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           25
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .13048E+01
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    42.01 %
+  Maximum violation of target distance:     0.195100
+  Maximum violation of the constraints: .44379E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           26
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .11494E+01
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    11.91 %
+  Maximum violation of target distance:     0.170189
+  Maximum violation of the constraints: .31047E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           27
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .91333E+00
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    20.54 %
+  Maximum violation of target distance:     0.174975
+  Maximum violation of the constraints: .22041E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           28
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .49270E+00
+  Best function value before: f = .24280E+00
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    46.05 %
+  Maximum violation of target distance:     0.192523
+  Maximum violation of the constraints: .15199E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           29
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .14456E+00
+  Best function value before: f = .24280E+00
+  Improvement from best function value:    40.46 %
+  Improvement from last loop:    70.66 %
+  Maximum violation of target distance:     0.057150
+  Maximum violation of the constraints: .46019E-01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           30
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .68674E-01
+  Best function value before: f = .14456E+00
+  Improvement from best function value:    52.49 %
+  Improvement from last loop:    52.49 %
+  Maximum violation of target distance:     0.032153
+  Maximum violation of the constraints: .17650E-01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           31
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .52641E-01
+  Best function value before: f = .68674E-01
+  Improvement from best function value:    23.35 %
+  Improvement from last loop:    23.35 %
+  Maximum violation of target distance:     0.034174
+  Maximum violation of the constraints: .16345E-01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           32
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .49907E-01
+  Best function value before: f = .52641E-01
+  Improvement from best function value:     5.19 %
+  Improvement from last loop:     5.19 %
+  Maximum violation of target distance:     0.036371
+  Maximum violation of the constraints: .17917E-01
+
+--------------------------------------------------------------------------------
+
+  Moving worst molecules ... 
+  Function value before moving molecules:   4.9907073693282497E-002
+  Type         1 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         1
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         2 molecules with non-zero contributions:    0.00%
+  Type         3 molecules with non-zero contributions:   66.67%
+  Moving         1 molecules of type         3
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Function value after moving molecules:   565.30372949148591     
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           33
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .41512E+01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    99.27 %
+  Maximum violation of target distance:     0.497197
+  Maximum violation of the constraints: .66117E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           34
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .19544E+01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    52.92 %
+  Maximum violation of target distance:     0.572328
+  Maximum violation of the constraints: .37378E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           35
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .49600E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    74.62 %
+  Maximum violation of target distance:     0.164627
+  Maximum violation of the constraints: .12797E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           36
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .30030E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    39.45 %
+  Maximum violation of target distance:     0.143546
+  Maximum violation of the constraints: .76547E-01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           37
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .25812E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    14.05 %
+  Maximum violation of target distance:     0.142798
+  Maximum violation of the constraints: .57769E-01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           38
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .25577E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:     0.91 %
+  Maximum violation of target distance:     0.141931
+  Maximum violation of the constraints: .61452E-01
+
+--------------------------------------------------------------------------------
+
+  Moving worst molecules ... 
+  Function value before moving molecules:  0.25577061670103179     
+  Type         1 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         1
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         2 molecules with non-zero contributions:    0.00%
+  Type         3 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         3
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Function value after moving molecules:   593.39955072699354     
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           39
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .14263E+02
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    97.60 %
+  Maximum violation of target distance:     1.804187
+  Maximum violation of the constraints: .20530E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           40
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .13669E+01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    90.42 %
+  Maximum violation of target distance:     0.218875
+  Maximum violation of the constraints: .35352E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           41
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .88374E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    35.35 %
+  Maximum violation of target distance:     0.167788
+  Maximum violation of the constraints: .38100E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           42
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .77229E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    12.61 %
+  Maximum violation of target distance:     0.124535
+  Maximum violation of the constraints: .29669E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           43
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .76943E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:     0.37 %
+  Maximum violation of target distance:     0.126558
+  Maximum violation of the constraints: .29270E+00
+
+--------------------------------------------------------------------------------
+
+  Moving worst molecules ... 
+  Function value before moving molecules:  0.76943237805612941     
+  Type         1 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         1
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         2 molecules with non-zero contributions:    0.00%
+  Type         3 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         3
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Function value after moving molecules:   820.49186708413890     
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           44
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .61862E+01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    99.25 %
+  Maximum violation of target distance:     0.635267
+  Maximum violation of the constraints: .19506E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           45
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .15082E+01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    75.62 %
+  Maximum violation of target distance:     0.210382
+  Maximum violation of the constraints: .63747E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           46
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .87992E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    41.66 %
+  Maximum violation of target distance:     0.213866
+  Maximum violation of the constraints: .23169E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           47
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .68987E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    21.60 %
+  Maximum violation of target distance:     0.127567
+  Maximum violation of the constraints: .24451E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           48
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .68985E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:     0.00 %
+  Maximum violation of target distance:     0.127553
+  Maximum violation of the constraints: .24486E+00
+
+--------------------------------------------------------------------------------
+
+  Moving worst molecules ... 
+  Function value before moving molecules:  0.68985178064291452     
+  Type         1 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         1
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         2 molecules with non-zero contributions:    0.00%
+  Type         3 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         3
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Function value after moving molecules:   500.25784031530446     
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           49
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .29053E+01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    99.42 %
+  Maximum violation of target distance:     0.585134
+  Maximum violation of the constraints: .37826E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           50
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .80383E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    72.33 %
+  Maximum violation of target distance:     0.142238
+  Maximum violation of the constraints: .22604E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           51
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .59055E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    26.53 %
+  Maximum violation of target distance:     0.140844
+  Maximum violation of the constraints: .16355E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           52
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .47027E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    20.37 %
+  Maximum violation of target distance:     0.123039
+  Maximum violation of the constraints: .12729E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           53
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .45237E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:     3.80 %
+  Maximum violation of target distance:     0.120840
+  Maximum violation of the constraints: .14626E+00
+
+--------------------------------------------------------------------------------
+
+  Moving worst molecules ... 
+  Function value before moving molecules:  0.45237450827413644     
+  Type         1 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         1
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         2 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         2
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         3 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         3
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Function value after moving molecules:   787.65158632887744     
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           54
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .21695E+02
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    97.25 %
+  Maximum violation of target distance:     2.058285
+  Maximum violation of the constraints: .15548E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           55
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .39491E+01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    81.80 %
+  Maximum violation of target distance:     0.650969
+  Maximum violation of the constraints: .21414E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           56
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .14790E+01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    62.55 %
+  Maximum violation of target distance:     0.510873
+  Maximum violation of the constraints: .26558E+00
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           57
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .14044E+01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:     5.05 %
+  Maximum violation of target distance:     0.478420
+  Maximum violation of the constraints: .30491E+00
+
+--------------------------------------------------------------------------------
+
+  Moving worst molecules ... 
+  Function value before moving molecules:   1.4043773378803037     
+  Type         1 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         1
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Type         2 molecules with non-zero contributions:    0.00%
+  Type         3 molecules with non-zero contributions:  100.00%
+  Moving         1 molecules of type         3
+  New positions will be based on good molecules (movebadrandom is not set) 
+   Moving:|0                                                        100%|
+          |*************************************************************|
+  Function value after moving molecules:   555.55343004917222     
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           58
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .89799E+01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    98.38 %
+  Maximum violation of target distance:     0.961459
+  Maximum violation of the constraints: .15890E+01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           59
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .25655E+00
+  Best function value before: f = .49907E-01
+  Improvement from best function value:   -99.99 %
+  Improvement from last loop:    97.14 %
+  Maximum violation of target distance:     0.183082
+  Maximum violation of the constraints: .91793E-01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           60
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .33720E-01
+  Best function value before: f = .49907E-01
+  Improvement from best function value:    32.44 %
+  Improvement from last loop:    86.86 %
+  Maximum violation of target distance:     0.071418
+  Maximum violation of the constraints: .11800E-01
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           61
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |*************************************************************|
+
+  Function value from last GENCAN loop: f = .54378E-02
+  Best function value before: f = .33720E-01
+  Improvement from best function value:    83.87 %
+  Improvement from last loop:    83.87 %
+  Maximum violation of target distance:     0.012324
+  Maximum violation of the constraints: .24629E-02
+
+--------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------
+
+  Starting GENCAN loop:           62
+  Scaling radii by:    1.0000000000000000     
+
+  Packing:|0                                                        100%|
+          |***
+
+  Function value from last GENCAN loop: f = .49505E-02
+  Best function value before: f = .54378E-02
+  Improvement from best function value:     8.96 %
+  Improvement from last loop:     8.96 %
+  Maximum violation of target distance:     0.006692
+  Maximum violation of the constraints: .23938E-02
+
+################################################################################
+
+                                 Success! 
+              Final objective function value: .49505E-02
+              Maximum violation of target distance:   0.006692
+              Maximum violation of the constraints: .23938E-02
+
+--------------------------------------------------------------------------------
+
+              Please cite this work if Packmol was useful: 
+
+           L. Martinez, R. Andrade, E. G. Birgin, J. M. Martinez, 
+         PACKMOL: A package for building initial configurations for
+                   molecular dynamics simulations. 
+        Journal of Computational Chemistry, 30(13) pp. 2157-2164, 2009.
+                  https://doi.org/10.1002/jcc.21224
+
+################################################################################
+
+  Solution written to file: solvated_150/21-hexyl-3-methylimidazol-3-ium_1tungstate_N,N-dimethylformamide.xyz
+
+--------------------------------------------------------------------------------
+
+   Running time:    2.60132599      seconds. 
+
+--------------------------------------------------------------------------------
+
+
