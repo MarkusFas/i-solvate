@@ -35,25 +35,36 @@ def main():
         required=True,
         help="Output filename prefix"
         )
-    
-    parser.add_argument("--nsteps", 
-                        default=20000
-                        help="Number of MD steps")
-    parser.add_argument("--seed",
-                        default=12345,
-                        help="Random seed for PRNG")
-    parser.add_argument("--model_path", 
-                        required=True,
-                        help="Path to the ML model")
-    parser.add_argument("--inputfile", 
-                        required=True,
-                        help="Input structure file")
-    parser.add_argument("--temperature", 
-                        default=300,
-                        help="Simulation temperature in K")
-    parser.add_argument("--pressure", 
-                        default=1.0,
-                        help="Simulation pressure in GPa")
+    parser.add_argument(
+        "--model_path", 
+        required=True,
+        help="Path to the ML model"
+    )
+    parser.add_argument(
+        "--inputfile", 
+        required=True,
+        help="Input structure file"
+    )
+    parser.add_argument(
+        "--nsteps", 
+        default=20000,
+        help="Number of MD steps"
+        )
+    parser.add_argument(
+        "--seed",
+        default=12345,
+        help="Random seed for PRNG"
+    )
+    parser.add_argument(
+        "--temperature", 
+        default=300,
+        help="Simulation temperature in K"
+    )
+    parser.add_argument(
+        "--pressure", 
+        default=1.0,
+        help="Simulation pressure in GPa"
+    )
 
     args = parser.parse_args()
 
