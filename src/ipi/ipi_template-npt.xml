@@ -1,8 +1,8 @@
-<simulation verbosity='medium' safe_stride='200'>
+<simulation verbosity='medium' safe_stride='20'>
   <output prefix='FILENAME'>
-    <properties stride='200' filename='out'>  [ step, time{picosecond}, conserved{electronvolt}, temperature{kelvin}, kinetic_cv{electronvolt}, potential{electronvolt}, pressure_cv{megapascal}, kinetic_td{electronvolt} ] </properties>
-    <trajectory filename='pos' stride='200' format = 'ase'> positions </trajectory>
-    <trajectory filename='forces' stride='200' format = 'ase'> forces </trajectory>
+    <properties filename='out' stride='20'>  [ step, time{picosecond}, conserved{electronvolt}, temperature{kelvin}, kinetic_cv{electronvolt}, potential{electronvolt}, pressure_cv{megapascal}, kinetic_td{electronvolt} ] </properties>
+    <trajectory filename='pos' stride='20' format = 'ase'> positions </trajectory>
+    <trajectory filename='forces' stride='20' format = 'ase'> forces </trajectory>
   </output>
   <total_steps> NSTEPS </total_steps>
   <prng>
@@ -10,7 +10,7 @@
   </prng>
   <ffdirect name='pet-model'>
 <pes>metatomic</pes>
-<parameters>{model: MODEL_PATH, template: INPUTFILE}</parameters>
+<parameters>{model: MODEL_PATH, template: INPUTFILE}, device: cuda</parameters>
 </ffdirect>
   <system>
     <initialize nbeads='1'>
