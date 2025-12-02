@@ -1,0 +1,32 @@
+# Identifier;PUBCHEM_CID;Charge;IUPAC_Name
+OH⁻ [Hydroxide];961;-1;hydroxide
+NO₃⁻ [Nitrate];943;-1;nitrate
+CH₃COO⁻ [Acetate];175;-1;acetate
+HCOO⁻ [Formate];283;-1;formate
+CO₃²⁻ [Carbonate];19660;-2;carbonate
+HCO₃⁻ [Bicarbonate];769;-1;hydrogen-carbonate
+SO₄²⁻ [Sulfate];1117;-2;sulfate
+PO₄³⁻ [Phosphate];1061;-3;phosphate
+HPO₄²⁻ [Hydrogen phosphate];3681305;-2;hydrogen-phosphate
+H₂PO₄⁻ [Dihydrogen phosphate];1003;-1;dihydrogen-phosphate
+NCO⁻ [Cyanate];105034;-1;isocyanate
+SCN⁻ [Thiocyanate];9322;-1;thiocyanate
+CH₃SO₃⁻ [Methanesulfonate];85257;-1;methanesulfonate
+S₂O₃²⁻ [Thiosulfate];1084;-2;dioxido-oxo-sulfanylidene-lambda6-sulfane
+S₄O₆²⁻ [Tetrathionate];4657547;-2;2-dithioperoxy-disulfate
+CN⁻ [Cyanide];5975;-1;cyanide
+C₆H₅COO⁻ [Benzoate];242;-1;benzoate
+CF₃SO₃⁻ [Triflate,Trifluoromethanesulfonate];2758875;-1;trifluoromethanesulfonate
+ClO₄⁻ [Perchlorate];123351;-1;perchlorate
+BF₄⁻ [Tetrafluoroborate];26255;-1;tetrafluoroborate
+PF₆⁻ [Hexafluorophosphate];9886;-1;hexafluorophosphate
+ClO₃⁻ [Chlorate];104770;-1;chlorate
+ClO₂⁻ [Chlorite];197148;-1;chlorite
+BrO₃⁻ [Bromate]; 84979;-1;bromate
+IO₃⁻ [Iodate];84927;-1;iodate
+MnO₄⁻ [Permanganate];24401;-1;permanganate
+CrO₄²⁻ [Chromate];24461;-2;chromate
+Cr₂O₇²⁻ [Dichromate];24503;-2;dichromate
+MoO₄²⁻ [Molybdate];24621;-2;molybdate
+WO₄²⁻ [Tungstate];24465;-2;tungstate
+S₂²⁻ [Disulfide];89870;-2;disulfide
