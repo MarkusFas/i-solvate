@@ -42,8 +42,8 @@ def run_dyn(atoms, model_path, out_file, ensemble, total_time):
             timestep = dt,
             temperature_K = 330 ,
             externalstress = 1/1602180,   # 1 bar
-            ttime= 50 * units.fs,
-            pfactor= 50 * units.fs,
+            ttime= 200 * units.fs,
+            pfactor= 200 * units.fs,
             )
     else:
         raise ValueError(f"Ensemble {ensemble} not recognized. Use 'nvt' or 'npt'.")
