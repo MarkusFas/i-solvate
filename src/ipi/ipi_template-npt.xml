@@ -1,71 +1,58 @@
 <simulation verbosity='medium' safe_stride='20'>
-  <output prefix='FILENAME'>
-    <properties filename='out' stride='20'>  [ step, time{picosecond}, conserved{electronvolt}, temperature{kelvin}, kinetic_cv{electronvolt}, potential{electronvolt}, pressure_cv{megapascal}, kinetic_td{electronvolt} ] </properties>
-    <trajectory filename='pos' stride='20' format = 'ase'> positions </trajectory>
-    <trajectory filename='forces' stride='20' format = 'ase'> forces </trajectory>
-  </output>
-  <total_steps> NSTEPS </total_steps>
-  <prng>
-    <seed> SEED </seed>
-  </prng>
-  <ffdirect name='pet-model'>
-<pes>metatomic</pes>
-<parameters>{model: MODEL_PATH, template: INPUTFILE}, device: cuda</parameters>
-</ffdirect>
-  <system>
-    <initialize nbeads='1'>
-      <file mode='ase'> INPUTFILE </file>
-      <velocities mode='thermal' units='kelvin'> TEMPERATURE </velocities>
-    </initialize>
-    <forces>
-      <force forcefield='pet-model'> </force>
-    </forces>
-  <ensemble>
-     <pressure units='gigapascal'> PRESSURE </pressure>
-     <temperature units='kelvin'> TEMPERATURE </temperature>
-  </ensemble>
-  <motion mode='dynamics'>
-     <dynamics mode='npt'>
-        <barostat mode='isotropic'> 
-		    <tau units='femtosecond'> 250 </tau>
-            # Optimal-sampling GLE. Enforces efficient sampling of the potential energy 
-            # by an appropriate colored noise. The parameters were picked from 
-            # library/optimal/kv_4-4.a, 
-            # and shifted so that they span a range between 
-            # ωmin=0.4 cm^-1 and ωmax=4000 cm^-1 
-            <thermostat mode='gle'>
-            	<tau units='femtosecond'> 250 </tau>
-                <A shape='(5,5)'>
-                    [4.498098855452e-3,    6.594810718477e-6,    2.788030342989e-4,   -8.808265165053e-4,    5.605371493938e-3, 
-                    -6.726802271646e-6,    2.079069559861e-9,    1.746169548818e-5,   -4.800164465960e-6,    1.025830873432e-5, 
-                    -3.586191452340e-4,   -1.746169548818e-5,    3.287481976399e-5,    1.245698716799e-4,   -2.417657162526e-4, 
-                    -2.508912543565e-4,    4.800164465960e-6,   -1.245698716799e-4,    6.449207766266e-4,    2.783583234046e-4, 
-                    5.273493443008e-3,   -1.025830873432e-5,    2.417657162526e-4,   -2.783583234046e-4,    7.488477456790e-3]
-                </A>
-            </thermostat>
-        </barostat>
-        # Smart-sampling GLE. Enforces efficient sampling, focussing the effort on the slowest mode 
-        # accessible by the simulation. Generated from the parameter file
-        # library/smart/smart-0.5_6-3.a, 
-        # and shifted so that they are effective to sample optimally 
-        # a time scale of t_opt=5 picoseconds,
-        # and do as well as possible upt to a cutoff frequency of 
-        # νmax=200 THz [6671 cm^-1]
-        <thermostat mode='gle'>
-            <tau units='femtosecond'> 250 </tau>
-            <A shape='(7,7)'>
-            [   6.132999466851e-4,    7.837290653515e-3,    7.940151712001e-4,    1.150246601244e-3,    3.902053470657e-4,   -1.521701342333e-5,   -2.421796420830e-4, 
-        2.369587436269e-4,    3.229715096226e-2,   -2.346445762874e-2,    3.682089101307e-3,    2.687824618827e-3,   -6.345434219268e-4,    1.200504852607e-3, 
-        1.150060489267e-3,    2.346445762874e-2,    1.080026691822e-2,    1.016158006266e-2,   -3.642191130479e-4,    2.315024108244e-3,   -4.798888325710e-3, 
-        -1.176539266696e-3,   -3.682089101307e-3,   -1.016158006266e-2,    1.064662774937e-4,   -3.024647949008e-5,    2.760028798316e-4,    3.714629882936e-4, 
-        -3.904365387158e-4,   -2.687824618827e-3,    3.642191130479e-4,    3.024647949008e-5,    5.610270712133e-7,   -9.139658558927e-5,   -3.165394596873e-5, 
-        1.519887890196e-5,    6.345434219268e-4,   -2.315024108244e-3,   -2.760028798316e-4,    9.139658558927e-5,    1.790692692667e-7,    2.096605583347e-4, 
-        2.421895107636e-4,   -1.200504852607e-3,    4.798888325710e-3,   -3.714629882936e-4,    3.165394596873e-5,   -2.096605583347e-4,   1.263981205340e-11
-            ]
-            </A>
-        </thermostat>
-        <timestep units='femtosecond'> 0.5 </timestep>
-      </dynamics>
-    </motion>
-  </system>
+	<output prefix='FILENAME'>
+		<properties filename='out' stride='20'>  [ step, time{picosecond}, conserved{electronvolt}, temperature{kelvin}, kinetic_cv{electronvolt}, potential{electronvolt}, pressure_cv{megapascal}, kinetic_td{electronvolt} ] </properties>
+		<trajectory filename='pos' stride='20' format = 'ase'> positions </trajectory>
+		<trajectory filename='forces' stride='20' format = 'ase'> forces </trajectory>
+	</output>
+	<total_steps> NSTEPS </total_steps>
+  	<prng>
+    		<seed> SEED </seed>
+  	</prng>
+	<ffdirect name='pet-model'>
+		<pes>metatomic</pes>
+		<parameters>{model: MODEL_PATH, template: INPUTFILE}, device: cuda</parameters>
+	</ffdirect>
+  	<system>
+    		<initialize nbeads='1'>
+      			<file mode='ase'> INPUTFILE </file>
+      			<velocities mode='thermal' units='kelvin'> TEMPERATURE </velocities>
+    		</initialize>
+    		<forces>
+      			<force forcefield='pet-model'> </force>
+    		</forces>
+  		<ensemble>
+     			<pressure units='gigapascal'> PRESSURE </pressure>
+     			<temperature units='kelvin'> TEMPERATURE </temperature>
+  		</ensemble>
+  		<motion mode='dynamics'>
+     			<dynamics mode='npt'>
+        			<barostat mode='isotropic'> 
+	    				<tau units='femtosecond'> 250 </tau>
+            				<thermostat mode='langevin'>
+            					<tau units='femtosecond'> 250 </tau>
+            				</thermostat>
+        			</barostat>
+        			# Smart-sampling GLE. Enforces efficient sampling, focussing the effort on the slowest mode 
+        			# accessible by the simulation. Generated from the parameter file
+        			# library/smart/smart-0.5_6-3.a, 
+        			# and shifted so that they are effective to sample optimally 
+        			# a time scale of t_opt=5 picoseconds,
+        			# and do as well as possible upt to a cutoff frequency of 
+        			# νmax=200 THz [6671 cm^-1]
+        			<thermostat mode='gle'>
+        			    	<A shape='(7,7)'>
+        			    	[   6.132999466851e-4,    7.837290653515e-3,    7.940151712001e-4,    1.150246601244e-3,    3.902053470657e-4,   -1.521701342333e-5,   -2.421796420830e-4, 
+        				2.369587436269e-4,    3.229715096226e-2,   -2.346445762874e-2,    3.682089101307e-3,    2.687824618827e-3,   -6.345434219268e-4,    1.200504852607e-3, 
+        				1.150060489267e-3,    2.346445762874e-2,    1.080026691822e-2,    1.016158006266e-2,   -3.642191130479e-4,    2.315024108244e-3,   -4.798888325710e-3, 
+        				-1.176539266696e-3,   -3.682089101307e-3,   -1.016158006266e-2,    1.064662774937e-4,   -3.024647949008e-5,    2.760028798316e-4,    3.714629882936e-4, 
+        				-3.904365387158e-4,   -2.687824618827e-3,    3.642191130479e-4,    3.024647949008e-5,    5.610270712133e-7,   -9.139658558927e-5,   -3.165394596873e-5, 
+        				1.519887890196e-5,    6.345434219268e-4,   -2.315024108244e-3,   -2.760028798316e-4,    9.139658558927e-5,    1.790692692667e-7,    2.096605583347e-4, 
+        				2.421895107636e-4,   -1.200504852607e-3,    4.798888325710e-3,   -3.714629882936e-4,    3.165394596873e-5,   -2.096605583347e-4,   1.263981205340e-11
+        			    	]
+        			    	</A>
+        			</thermostat>
+        			<timestep units='femtosecond'> 0.5 </timestep>
+      			</dynamics>
+    		</motion>
+  	</system>
 </simulation>
