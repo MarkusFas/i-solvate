@@ -5,7 +5,6 @@ from run_ase import run_dyn
 import random
 from ase.io import read
 
-
 def main():
     parser = argparse.ArgumentParser(
             description="Run NPT or NVT simulations on XYZ files."
