@@ -81,7 +81,7 @@ def run_dyn(atoms, model_path, out_file, ensemble, total_time, temperature, pres
     atoms.arrays['forces'] = atoms.get_forces()
     trajectory.append(atoms.copy())
 
-    for step in range(nsteps):
+    for step in tqdm(range(nsteps), desc="Running simulation"):
         # run a single simulation step
         dyn.run(1)
         if step%100==0:

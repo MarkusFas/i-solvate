@@ -66,7 +66,7 @@ def main():
     temperature = [random.randint(300, 800) for _ in range(len(xyz_files))] # K
     pressure = [random.randint(0, 10) / 10 * 1e4 for _ in range(len(xyz_files))] # 0 to 1 GPa in bar
  
-    for i, f in enumerate(tqdm(xyz_files, desc="Processing files")):
+    for i, f in enumerate(xyz_files):
         print(f"File: {f}, Temperature: {temperature[i]} K, Pressure: {pressure[i]/1e4} GPa")
         atoms = read(f)
         base = os.path.basename(f).replace("-relax.xyz", "")
