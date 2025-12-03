@@ -60,13 +60,14 @@ def main():
 
     xyz_files = sorted(glob(os.path.join(root, "*.xyz")))
 
+    random.shuffle(xyz_files)
     if not xyz_files:
         raise ValueError(f"No .xyz files found in {args.root}")
 
     temperature = [random.randint(300, 800) for _ in range(len(xyz_files))] # K
     pressure = [random.randint(0, 10) / 10 * 1e4 for _ in range(len(xyz_files))] # 0 to 1 GPa in bar
  
-    for i, f in enumerate(xyz_files):
+    for i, f in enumerate(xyz_files[:5]):
         print(f"File: {f}, Temperature: {temperature[i]} K, Pressure: {pressure[i]/1e4} GPa")
         atoms = read(f)
         base = os.path.basename(f).replace("-relax.xyz", "")
