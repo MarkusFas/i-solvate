@@ -74,10 +74,10 @@ def main():
         ooutdir = os.path.join(outdir, f"{base}")
         if not os.path.exists(ooutdir):
             os.makedirs(ooutdir)
-        else:
-            print(f"Output directory {ooutdir} already exists. Skipping.")
-            continue
         out_file = os.path.join(ooutdir, f"traj_{temperature[i]}K_{pressure[i]/1e4}GPa-{ensemble}.xyz")
+        if os.path.exists(out_file):
+            print(f"{out_file} already exists. Skipping simulation.")
+            continue
         run_dyn(atoms, model_path, out_file, ensemble, total_time, temperature[i], pressure[i])
 
 if __name__ == "__main__":
