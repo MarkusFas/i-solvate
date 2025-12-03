@@ -3,6 +3,7 @@ import argparse
 import os
 from glob import glob
 import numpy as np
+import sys
 
 from ase.io import read, write
 from ase.md.melchionna import MelchionnaNPT
@@ -81,7 +82,7 @@ def run_dyn(atoms, model_path, out_file, ensemble, total_time, temperature, pres
     atoms.arrays['forces'] = atoms.get_forces()
     trajectory.append(atoms.copy())
 
-    for step in tqdm(range(nsteps), desc="Running simulation"):
+    for step in tqdm(range(nsteps), desc="Running simulation", file=sys.stdout):
         # run a single simulation step
         dyn.run(1)
         if step%100==0:
