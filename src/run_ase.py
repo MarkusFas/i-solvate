@@ -70,7 +70,7 @@ def run_dyn(atoms, model_path, out_file, ensemble, total_time, temperature, pres
             tdamp= 100 * dt,
             pdamp= 1000 * dt,
             )
-        dyn.attach(MDLogger(dyn, atoms, out_file.replace('.xyz', '.log'), header=True, stress=True, peratom=False), interval=10)
+        dyn.attach(MDLogger(dyn, atoms, out_file.replace('.xyz', '.log'), header=True, stress=True, peratom=False), interval=100)
     else:
         raise ValueError(f"Ensemble {ensemble} not recognized. Use 'nvt' or 'npt'.")
 
